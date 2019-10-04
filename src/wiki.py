@@ -83,6 +83,3 @@ def get_film_names(name):
         y = x.split('(')[0].strip()
         ar.append([y, DATA[2][i]])
     return ar
-
-
-print(get_film_names('the fast and the furious 2'))

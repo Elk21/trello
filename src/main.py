@@ -54,7 +54,6 @@ def create_media_selector(card_id, items):
 
 
 def create_game_desc(game_name, game_desc):
-    print(game_name)
     scores = get_metacritic_score(game_name)
 
     if not scores:
@@ -97,6 +96,9 @@ def fill_games():
         checklist = get_checklists_id(card_id)
 
         print(f'***** {card_name} {card_id} *****\n')
+
+        if card_desc != '':
+            continue
 
         if len(games) == 1:
             game_name = games[0][0]
@@ -164,6 +166,9 @@ def fill_films_list(list_id):
 
         print(card_name, card_id)
 
+        if card_desc != '':
+            continue
+
         if len(films) == 1:
             film_name = films[0][0]
             film = find_omdb(film_name, 'movie')
@@ -184,7 +189,6 @@ def fill_films_list(list_id):
                     fill_film_card(card_id, film)
                     delete_all_checklists(card_id)
                 else:
-                    add_desc(card_id, '# Can not find film with this title')
                     delete_all_checklists(card_id)
                     create_media_selector(card_id, films)
 
@@ -211,7 +215,12 @@ def fill_list(list_id, t):
     for card in cards:
         card_name = card['name']
         card_id = card['id']
+        card_desc = card['desc']
+
         print(card_name, card_id)
+
+        if card_desc != '':
+            continue
 
         film = find_omdb(card_name, t)
         if not film:
@@ -276,4 +285,5 @@ if __name__ == '__main__':
     # fill_list(SERIES_LIST_ID, 'series')
     # fill_list(FILMS_LIST_ID, 'movie')
     # fill_games()
-    fill_films_list(FILMS_LIST_ID)
+    # fill_films_list(FILMS_LIST_ID)
+    update()

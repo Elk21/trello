@@ -95,7 +95,7 @@ def fill_games():
         games = get_games_name(card_name)
         checklist = get_checklists_id(card_id)
 
-        print(f'***** {card_name} {card_id} *****\n')
+        print(card_name, card_id)
 
         if card_desc != '':
             continue

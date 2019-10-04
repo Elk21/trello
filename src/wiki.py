@@ -70,7 +70,7 @@ def get_film_names(name):
         "action": "opensearch",
         "namespace": "0",
         "search": name,
-        "limit": "5",
+        "limit": "10",
         "format": "json"
     }
 
@@ -78,8 +78,12 @@ def get_film_names(name):
     DATA = R.json()
 
     ar = []
+    ar2 = []
     for i, x in enumerate(DATA[1]):
-        # if 'film' in x or 'film' in DATA[2][i]:
-        y = x.split('(')[0].strip()
-        ar.append([y, DATA[2][i]])
+        if 'film' in x or 'film' in DATA[2][i]:
+            y = x.split('(')[0].strip()
+            ar.append([y, DATA[2][i]])
+        else:
+            ar2.append([x, DATA[2][i]])
+    ar.extend(ar2)
     return ar

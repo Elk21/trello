@@ -3,6 +3,7 @@ import requests
 from src.config import TRELLO_TOKEN, TRELLO_KEY
 
 BOARD_ID = 'WIopiWu2'
+CALLBACK_URL = "https://quiet-ridge-13488.herokuapp.com/trello"
 
 
 def get_lists():
@@ -106,6 +107,8 @@ def add_checklist(card_id, name='Select game'):
     response = requests.request("POST", url, params=querystring)
     checklist_id = response.json()['id']
 
+    create_webhook(checklist_id)
+
     return checklist_id
 
 
@@ -132,6 +135,75 @@ def delete_all_checklists(card_id):
     ids = get_checklists_id(card_id)
 
     for id in ids:
+        delete_webhook(id)
         url = f"https://api.trello.com/1/cards/{card_id}/checklists/{id}"
         response = requests.request("DELETE", url, params=querystring)
+    # return response.text
+
+
+def create_webhook(idModel):
+    '''
+        Create webhook for object with <idModel>
+    '''
+
+    url = f"https://api.trello.com/1/tokens/{TRELLO_TOKEN}/webhooks/"
+    querystring = {"key": TRELLO_KEY,
+                   "callbackURL": CALLBACK_URL,
+                   "idModel": f"{idModel}",
+                   "description": "Some webhook"}
+    response = requests.request("POST", url, params=querystring)
+    print('created hook ', response.text)
+
+    return response.text
+
+
+def get_webhooks():
+    '''
+        Get all webhooks
+        returns list of dicts, keys: 'id', 'idModel'
+    '''
+
+    url = f"https://api.trello.com/1/tokens/{TRELLO_TOKEN}/webhooks"
+    querystring = {"key": TRELLO_KEY}
+    response = requests.request("GET", url, params=querystring)
+
+    ar = []
+    for x in response.json():
+        ar.append({'id': x['id'], 'idModel': x['idModel']})
+
+    print(ar)
+
+    return ar
+
+
+def delete_webhook(idModel):
+    '''
+        Delete webhook by the model id (id of trello object)
+    '''
+
+    hooks = get_webhooks()
+    for hook in hooks:
+        if idModel == hook['idModel']:
+            webhook_id = hook['id']
+            url = f"https://api.trello.com/1/tokens/{TRELLO_TOKEN}/webhooks/{webhook_id}"
+            querystring = {"key": TRELLO_KEY}
+            response = requests.request("DELETE", url, params=querystring)
+            print('deleted ', response.text)
+
+            return response.text
+    return None
+
+
+def delete_all_webhooks():
+    '''
+        Delete all webhooks
+    '''
+
+    hooks = get_webhooks()
+    for hook in hooks:
+        webhook_id = hook['id']
+        url = f"https://api.trello.com/1/tokens/{TRELLO_TOKEN}/webhooks/{webhook_id}"
+        querystring = {"key": TRELLO_KEY}
+        response = requests.request("DELETE", url, params=querystring)
+        print('deleted ', response.text)
     # return response.text

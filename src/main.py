@@ -277,5 +277,6 @@ if __name__ == '__main__':
     # fill_list(FILMS_LIST_ID, 'movie')
     # fill_games()
     fill_films_list(FILMS_LIST_ID)
-
+else:
+    update()
     # update()

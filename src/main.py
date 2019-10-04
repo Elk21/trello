@@ -11,11 +11,14 @@ from src.trello import *
 
 '''
     TODO:
-        1. Add webhooks
+        1. DONE - Add webhooks
         2. Add labels with raiting for cards
         3. Parse books
-        4. Parse genres for games via metacritic
+        4. DONE - Parse genres for games via metacritic
         5. Improve youtube search for trailers
+        6. Improve wiki search
+        7. Refactor fill_list() (create function for filling series list)
+        8. Add webhooks for each list separately
 '''
 
 
@@ -283,8 +286,4 @@ def update():
 
 
 if __name__ == '__main__':
-    # fill_list(SERIES_LIST_ID, 'series')
-    # fill_list(FILMS_LIST_ID, 'movie')
-    # fill_games()
-    # fill_films_list(FILMS_LIST_ID)
     update()

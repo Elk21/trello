@@ -15,6 +15,7 @@ from src.trello import *
         2. Add labels with raiting for cards
         3. Parse books
         4. Parse genres for games via metacritic
+        5. Improve youtube search for trailers
 '''
 
 

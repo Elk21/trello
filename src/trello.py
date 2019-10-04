@@ -19,7 +19,7 @@ def get_lists():
         "token": f"{TRELLO_TOKEN}"}
 
     response = requests.request("GET", url, params=querystring)
-    return json.loads(json.dumps(response.json()))
+    return response.json()
 
 
 def get_cards(list_id):
@@ -141,7 +141,7 @@ def delete_all_checklists(card_id):
     # return response.text
 
 
-def create_webhook(idModel):
+def create_webhook(idModel, desc="Some webhook"):
     '''
         Create webhook for object with <idModel>
     '''
@@ -150,7 +150,7 @@ def create_webhook(idModel):
     querystring = {"key": TRELLO_KEY,
                    "callbackURL": CALLBACK_URL,
                    "idModel": f"{idModel}",
-                   "description": "Some webhook"}
+                   "description": desc}
     response = requests.request("POST", url, params=querystring)
     print('created hook ', response.text)
 
@@ -207,3 +207,13 @@ def delete_all_webhooks():
         response = requests.request("DELETE", url, params=querystring)
         print('deleted ', response.text)
     # return response.text
+
+
+def create_webhooks_for_lists():
+    '''
+        Create webhooks for lists
+    '''
+    lists = get_lists()
+
+    for x in lists:
+        create_webhook(x['id'], x['name'])

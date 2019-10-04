@@ -1,5 +1,6 @@
 from flask import Flask, request
 from src.main import update
+from src.trello import delete_all_webhooks, create_webhooks_for_lists
 
 app = Flask(__name__)
 
@@ -12,4 +13,6 @@ def run_update():
 
 
 if __name__ == '__main__':
+    delete_all_webhooks()
+    create_webhooks_for_lists()
     app.run(debug=True)

@@ -70,7 +70,7 @@ def get_film_names(name):
         "action": "opensearch",
         "namespace": "0",
         "search": name,
-        "limit": "10",
+        "limit": "5",
         "format": "json"
     }
 

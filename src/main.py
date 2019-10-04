@@ -16,9 +16,11 @@ from src.trello import *
         3. Parse books
         4. DONE - Parse genres for games via metacritic
         5. Improve youtube search for trailers
-        6. Improve wiki search
+        6. Improve wiki search for film/game names
         7. Refactor fill_list() (create function for filling series list)
-        8. Add webhooks for each list separately
+        8. Add webhooks for each list separately (or even for each card)
+        9. Fix bug in genres parsing for games
+        10. Add logging
 '''
 
 

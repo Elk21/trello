@@ -1,5 +1,5 @@
 import requests
-from config import YOUTUBE_TOKEN
+from src.config import YOUTUBE_TOKEN
 
 
 def get_trailer(text):

@@ -1,13 +1,13 @@
 import json
 import requests
 from bs4 import BeautifulSoup
-from config import TRELLO_TOKEN, TRELLO_KEY
-from imdb import find_film, find_omdb, find_series
-from metacritic import get_metacritic_score
-from wiki import get_games_name, get_film_names
-from youtube import get_trailer
-from images import draw_metacritic_image, draw_imdb_rating
-from trello import *
+from src.config import TRELLO_TOKEN, TRELLO_KEY
+from src.imdb import find_film, find_omdb, find_series
+from src.metacritic import get_metacritic_score
+from src.wiki import get_games_name, get_film_names
+from src.youtube import get_trailer
+from src.images import draw_metacritic_image, draw_imdb_rating
+from src.trello import *
 
 '''
     TODO:
@@ -277,6 +277,3 @@ if __name__ == '__main__':
     # fill_list(FILMS_LIST_ID, 'movie')
     # fill_games()
     fill_films_list(FILMS_LIST_ID)
-else:
-    update()
-    # update()

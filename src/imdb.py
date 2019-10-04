@@ -1,8 +1,8 @@
 import json
 # from config import *
-from config import OMDB_TOKEN
+from src.config import OMDB_TOKEN
 import requests
-from wiki import get_wiki_film_name
+from src.wiki import get_wiki_film_name
 
 
 def find_omdb(film, t='series'):

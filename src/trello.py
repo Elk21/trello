@@ -1,6 +1,6 @@
 import json
 import requests
-from config import TRELLO_TOKEN, TRELLO_KEY
+from src.config import TRELLO_TOKEN, TRELLO_KEY
 
 BOARD_ID = 'WIopiWu2'
 

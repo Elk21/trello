@@ -1,5 +1,6 @@
 from flask import Flask, request
-from main import update
+from src.main import update
+
 app = Flask(__name__)
 
 

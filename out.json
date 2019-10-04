@@ -1,50 +1,69 @@
-[
-    {
-        "idChecklist": "5d84deb58569f93346372607",
-        "state": "incomplete",
-        "id": "5d84deb52125365e983aaf1e",
-        "name": "**Borderlands 3** - Borderlands 3 is an action role-playing first-person shooter video game developed by Gearbox Software and published by 2K Games.",
-        "nameData": None,
-        "type": None,
-        "pos": 16384,
-        "creationMethod": None
+{
+    "left": {
+        "child": {
+            "left": {
+                "child": {
+                    "left": {
+                        "left": {
+                            "value": "a"
+                        },
+                        "right": {
+                            "value": "b"
+                        },
+                        "op": "&"
+                    },
+                    "right": {
+                        "value": "c"
+                    },
+                    "op": "&"
+                },
+                "op": "~"
+            },
+            "right": {
+                "left": {
+                    "left": {
+                        "child": {
+                            "value": "d"
+                        },
+                        "op": "~"
+                    },
+                    "right": {
+                        "value": "e"
+                    },
+                    "op": "|"
+                },
+                "right": {
+                    "value": "f"
+                },
+                "op": "&"
+            },
+            "op": "|"
+        },
+        "op": "~"
     },
-    {
-        "idChecklist": "5d84deb58569f93346372607",
-        "state": "incomplete",
-        "id": "5d84deb6a2716e570a4486cd",
-        "name": "**Borderlands 2** - Borderlands 2 is an action role-playing first-person shooter video game developed by Gearbox Software and published by 2K Games.",
-        "nameData": None,
-        "type": None,
-        "pos": 32768,
-        "creationMethod": None
+    "right": {
+        "left": {
+            "left": {
+                "left": {
+                    "value": "a"
+                },
+                "right": {
+                    "value": "b"
+                },
+                "op": "&"
+            },
+            "right": {
+                "child": {
+                    "value": "c"
+                },
+                "op": "~"
+            },
+            "op": "&"
+        },
+        "right": {
+            "value": "e"
+        },
+        "op": "|"
     },
-    {
-        "idChecklist": "5d84deb58569f93346372607",
-        "state": "incomplete",
-        "id": "5d84deb630d137735501aba9",
-        "name": "**Borderlands (series)** - Borderlands is a series of action role-playing first-person shooter video games in a space western science fantasy setting, created by Gearbox Software and published by 2K Games for multiple platforms.",
-        "nameData": None,
-        "type": None,
-        "pos": 49152,
-        "creationMethod": None
-    },
-    {
-        "idChecklist": "5d84deb58569f93346372607",
-        "state": "incomplete",
-        "id": "5d84deb777a3536978aaa4d7",
-        "name": "**Borderlands (video game)** - Borderlands is a 2009 open world action role-playing first-person shooter
-    video game. It is the first game in the Borderlands series, developed by Gearbox Software, and published by 2K Games for PlayStation 3,
-    Xbox 360, Microsoft Windows, Mac OS X and Shield Android TV.", "nameData": None, "type": None, "pos": 65536, "creationMethod": None
-    },
-    {
-        "idChecklist": "5d84deb58569f93346372607",
-        "state": "incomplete",
-        "id": "5d84deb77075652d2a6608cf",
-        "name": "**Borderlands: The Pre-Sequel** - Borderlands: The Pre-Sequel is an action role-playing first-person shooter video game developed by 2K Australia, with assistance from Gearbox Software and published by 2K Games.",
-        "nameData": None,
-        "type": None,
-        "pos": 81920,
-        "creationMethod": None
-    }
-]
+    "op": "|"
+}

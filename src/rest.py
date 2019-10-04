@@ -3,11 +3,12 @@ from main import update
 app = Flask(__name__)
 
 
-@app.route('/trello', methods=['POST'])
+@app.route('/trello', methods=['POST', 'GET'])
 def run_update():
+    print('*' * 20)
     update()
     return "OK"
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='https://intense-harbor-83800.herokuapp.com')
+    app.run(debug=True, port=5000)

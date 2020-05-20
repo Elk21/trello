@@ -1,7 +1,7 @@
 beautifulsoup4==4.8.0
 Flask==1.0.2
 Flask-RESTful==0.3.7
-httplib2==0.12.1
+httplib2==0.18.0
 matplotlib==3.0.3
 numpy==1.16.0
 pandas==0.23.4
